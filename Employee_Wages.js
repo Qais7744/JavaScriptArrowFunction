@@ -196,4 +196,25 @@
     console.log("Non Working Days " + nonWorkingDays);
     console.log("Part Working Days " + partWorkingDays);
     console.log("Full Working Days " + fullWorkingDays);
+
+    //UC-10 :- Object Creation
+
+    totalEmpHrs = 0;
+    let totalWorkingdays = 0;
+    let empDailyHrsAndWageArr = new Array();
+    while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingdays <= NUM_OF_WORKING_DAYS) {
+        totalWorkingdays++;
+        empCheck = Math.floor((Math.random() * 10) % 3);
+        const empHrs = getWorkingHours(empCheck);
+        totalEmpHrs += empHrs;
+        empDailyHrsAndWageArr.push({
+            dayNum: totalWorkingdays,
+            dailyHours: empHrs,
+            dailyWage: calDailyWage(empHrs),
+            toString() {
+                return '\nDay ' + this.dayNum + ' => working Hours is ' + this.dailyHours + ' And Wage Earned = ' + this.dailyWage
+            }
+        });
+    }
+    console.log("UC:-10 Showing daily hours worked and wage earned: " + empDailyHrsAndWageArr);
 }
