@@ -272,8 +272,12 @@
 
     let employeePayrollData = new EmployeePayrollData(1, "Altamash", 600000, "Male", new Date());
     console.log(employeePayrollData.toString());
-    employeePayrollData.name = "Qais";
-    console.log(employeePayrollData.toString());
+    try {
+        employeePayrollData.name = "Qais";
+        console.log(employeePayrollData.toString());
+    } catch (e) {
+        console.error(e);
+    }
     let newemployeePayrollData = new EmployeePayrollData(2, "Shailesh", 70000, "Male", new Date());
     console.log(newemployeePayrollData.toString());
 }
