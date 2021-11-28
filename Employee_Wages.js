@@ -246,12 +246,16 @@
         //property
         id;
         salary;
+        gender;
+        startDate;
 
         //constructor
-        constructor(id, name, salary) {
-            this.id = id;
-            this.name = name;
-            this.salary = salary;
+        constructor(...params) {
+            this.id = params[0];
+            this.name = params[1];
+            this.salary = params[2];
+            this.gender = params[3];
+            this.startDate = params[4];
         }
 
         //getter and setter
@@ -260,12 +264,16 @@
 
         //method
         toString() {
-            return "id =" + this.id + ", name = " + this.name + ", salary = " + this.salary;
+            const option = { year: 'numeric', month: 'long', day: 'numeric' };
+            const empDate = this.startDate === undefined ? "undefined" : this.startDate.toLocaleDateString("en-US", option);
+            return "id =" + this.id + ", name = " + this.name + ", salary = " + this.salary + ", gender = " + this.gender + ", startDate " + empDate;
         }
     }
 
-    let employeePayrollData = new EmployeePayrollData(1, "Priyanka", 300000);
+    let employeePayrollData = new EmployeePayrollData(1, "Altamash", 600000, "Male", new Date());
     console.log(employeePayrollData.toString());
-    employeePayrollData.name = "Jhon";
+    employeePayrollData.name = "Qais";
     console.log(employeePayrollData.toString());
+    let newemployeePayrollData = new EmployeePayrollData(2, "Shailesh", 70000, "Male", new Date());
+    console.log(newemployeePayrollData.toString());
 }
