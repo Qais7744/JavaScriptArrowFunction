@@ -239,4 +239,33 @@
     let nonworkingDayStrArr = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 0)
         .forEach(dailyHrsAndWage => dailyHrsAndWage.toString());
     console.log("\nUC 11D :- No working days " + nonworkingDayStrArr);
+
+    // Refactored UC11 Employee Wage With Class
+
+    class EmployeePayrollData {
+        //property
+        id;
+        salary;
+
+        //constructor
+        constructor(id, name, salary) {
+            this.id = id;
+            this.name = name;
+            this.salary = salary;
+        }
+
+        //getter and setter
+        get name() { return this._name; }
+        set name(name) { this._name = name; }
+
+        //method
+        toString() {
+            return "id =" + this.id + ", name = " + this.name + ", salary = " + this.salary;
+        }
+    }
+
+    let employeePayrollData = new EmployeePayrollData(1, "Priyanka", 300000);
+    console.log(employeePayrollData.toString());
+    employeePayrollData.name = "Jhon";
+    console.log(employeePayrollData.toString());
 }
